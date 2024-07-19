@@ -1,0 +1,114 @@
+{% load static %}
+{% load widget_tweaks %}
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Научно-исследовательский отдел</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'base/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'base/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'base/css/forms.css' %}">
+    <!--    <link href="{% static 'base/fonts/play.ttf' %}" rel="stylesheet" media="screen">-->
+
+    <title>Внесение новой формы</title>
+</head>
+<body>
+<h2>Доброго времени суток. Введите новое событие.</h2>
+
+<!--<form action="{% url 'form_conf' %}" enctype="multipart/form-data" method="post">-->
+<!--    {% csrf_token %}-->
+
+<!--    {% for field in form %}-->
+<!--    <div class="form-style">-->
+<!--        {{ field.label_tag }}-->
+<!--        {{ field }}-->
+<!--    </div>-->
+<!--    {% endfor %}-->
+
+<!--    {{form}}-->
+
+
+<!--    <button type="reset">ОЧИСТИТЬ</button>-->
+<!--    <button type="submit">ОПУБЛИКОВАТЬ</button>-->
+
+<!--</form>-->
+
+
+<!--Старая форма-->
+<!--<form action="/done" method="post">-->
+<!--    {% csrf_token %}-->
+<!--    <label for="naimenovanie_id">Название мероприятия</label>-->
+<!--    <textarea name="naimenovanie" id="naimenovanie_id" cols="30" rows="5"></textarea>-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <label for="uchregdenie_id">Организатор</label>-->
+<!--    <textarea name="uchregdenie" id="uchregdenie_id" cols="30" rows="3"></textarea>-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <label for="strana_id">Страна</label>-->
+<!--    <input type="text" id="strana_id" name="strana">-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <label for="status_meropriatia_id">Статус мероприятия</label>-->
+<!--    <input type="text" id="status_meropriatia_id" name="status_meropriatia">-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <label for="status_uchastnikov_id">Статус участников</label>-->
+<!--    <input type="text" id="status_uchastnikov_id" name="status_uchastnikov">-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <label for="data_podachi_id">Дата подачи материалов</label>-->
+<!--    <input type="date" id="data_podachi_id" name="data_podachi">-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <label for="data_provedenia_id">Дата проведения</label>-->
+<!--    <input type="date" id="data_provedenia_id" name="data_provedenia">-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <label for="primechanie_id">Примечание (минимально 1 символ (для примера "-")</label>-->
+<!--    <textarea name="primechanie" id="primechanie_id" cols="30" rows="3"></textarea>-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <label for="document_id">Файл приглашения</label>-->
+<!--    <input type="file" id="document_id" name="document">-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <button type="reset">ОЧИСТИТЬ</button>-->
+<!--    <button type="submit">ОПУБЛИКОВАТЬ</button>-->
+<!--</form>-->
+
+<!--тренировка-->
+
+<form action="{% url 'form_conf' %}" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+
+    {% render_field form.naimenovanie placeholder='Наименование мероприятия' class+='form-control' rows="3" cols="5" %}
+    <br>
+    {% render_field form.uchregdenie placeholder='Организатор мероприятия' class+='form-control' rows="3" cols="5" %}
+    <br>
+    {% render_field form.strana placeholder='Страна проведения' class+='form-control' %}
+    <br>
+    {% render_field form.status_meropriatia placeholder='Статус мероприятия' class+='form-control' %}
+    <br>
+    {% render_field form.status_uchastnikov placeholder='Статус участников' class+='form-control' %}
+    <br>
+    <h5>Дата подачи материалов</h5>
+    {% render_field form.data_podachi placeholder='Дата подачи материалов' class+='form-control' %}
+    <h5>Дата проведения мероприятия</h5>
+    {% render_field form.data_provedenia placeholder='Дата проведения мероприятия' class+='form-control' %}
+    <br>
+    {% render_field form.primechanie placeholder='Примечание' class+='form-control' %}
+    <br>
+    {% render_field form.document placeholder='Информационное письмо' class+='form-control' %}
+
+    <button class='btn btn-lg btn-primary btn-block mt-5' type="reset">ОЧИСТИТЬ</button>
+    <button class='btn btn-lg btn-primary btn-block mt-5' type="submit">ОПУБЛИКОВАТЬ</button>
+
+</form>
+
+</body>
+</html>
