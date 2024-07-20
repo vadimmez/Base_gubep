@@ -5,7 +5,7 @@
 <!doctype html>
 <html lang="en" class="h-100" data-bs-theme="auto" xmlns="http://www.w3.org/1999/html">
 <head>
-    <script src="/docs/5.3/assets/js/color-modes.js"></script>
+<!--    <script src="/docs/5.3/assets/js/color-modes.js"></script>-->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,23 +17,25 @@
     <link href="{% static 'base/css/bootstrap.css' %}" rel="stylesheet">
 
     <!--    Тренировка-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+<!--    Подключение шрифта Play-->
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+<!--Подключение static-->
     <link href="{% static 'base/css/style.css' %}" rel="stylesheet">
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png"
-          sizes="180x180">
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32"
-          type="image/png">
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16"
-          type="image/png">
-    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg"
-          color="#712cf9">
-    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
-    <meta name="theme-color" content="#712cf9">
+<!--    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">-->
+<!--    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32"-->
+<!--          type="image/png">-->
+<!--    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16"-->
+<!--          type="image/png">-->
+<!--    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">-->
+<!--    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg"-->
+<!--          color="#712cf9">-->
+<!--    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">-->
+<!--    <meta name="theme-color" content="#712cf9">-->
 
+<!--    <link href="{% static 'base/css/sticky-footer-navbar.css' %}" rel="stylesheet">-->
 
     <style>
         /*@font-face {*/
@@ -142,13 +144,10 @@
             text-align: center;
         }
 
-
-
     </style>
 
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'base/css/sticky-footer-navbar.css' %}" rel="stylesheet">
 
 </head>
 <body class="d-flex flex-column h-100">
@@ -397,17 +396,15 @@
         </tbody>
     </table>
     <br><br><br><br>
-</div>
-
-<!--footer-->
-<footer class="footer mt-auto py-3 bg-body-tertiary">
-    <div style="display: flex; justify-content: space-between; font-size: 12px" class="container d-flex">
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+    <div style="display: flex; justify-content: space-between; font-size: 12px; line-height: 12px" class="container d-flex">
         <div>© Академия МВД Республики Беларусь<br>Разработано кафедрой информационного права
             ФКМ<br>отделом образовательных информационных технологий<br>совместно с курсантом 3 курса
             ФКМ
         </div>
 
-        <div>Нашли ошибки? Есть предложения по развитию? <br>Просьба позвонить или написать <a
+        <div style=" line-height: 12px">Ресурс работает в тестовом режиме<br>Нашли ошибки? Есть предложения по развитию? <br>Просьба позвонить или
+            написать <a
                 href="https://t.me/Ni_shagu_Nazadd">админу</a> в
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                  class="bi bi-telegram" viewBox="0 0 16 16">
@@ -418,6 +415,29 @@
     </div>
 
 </footer>
+
+</div>
+
+<!--footer-->
+<!--<footer class="footer mt-auto py-3 bg-body-tertiary">-->
+<!--    <div style="display: flex; justify-content: space-between; font-size: 12px; line-height: 12px" class="container d-flex">-->
+<!--        <div>© Академия МВД Республики Беларусь<br>Разработано кафедрой информационного права-->
+<!--            ФКМ<br>отделом образовательных информационных технологий<br>совместно с курсантом 3 курса-->
+<!--            ФКМ-->
+<!--        </div>-->
+
+<!--        <div style=" line-height: 12px">Ресурс работает в тестовом режиме<br>Нашли ошибки? Есть предложения по развитию? <br>Просьба позвонить или-->
+<!--            написать <a-->
+<!--                href="https://t.me/Ni_shagu_Nazadd">админу</a> в-->
+<!--            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"-->
+<!--                 class="bi bi-telegram" viewBox="0 0 16 16">-->
+<!--                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>-->
+<!--            </svg>-->
+<!--        </div>-->
+
+<!--    </div>-->
+
+<!--</footer>-->
 
 
 <!--scripts-->
