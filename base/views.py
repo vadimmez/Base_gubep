@@ -40,10 +40,13 @@ def index2(request):
             emails = Podpiska.objects.all()
             email_list = list(set([item.email for item in emails]))
 
-            threads = [threading.Thread(target=send_email, args=([email],), daemon=True) for email in email_list]
+            thread = threading.Thread(target=send_email, args=[email_list])
+            thread.start()
 
-            for thread in threads:
-                thread.start()
+            # threads = [threading.Thread(target=send_email, args=([email],), daemon=True) for email in email_list]
+            #
+            # for thread in threads:
+            #     thread.start()
 
             # for item in email_list:
             # send_mail("Новая запись о конференции",
