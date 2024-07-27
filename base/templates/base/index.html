@@ -1,11 +1,12 @@
 {% load static %}
 {% load widget_tweaks %}
+{% load url_replace %}
 
 
 <!doctype html>
 <html lang="en" class="h-100" data-bs-theme="auto" xmlns="http://www.w3.org/1999/html">
 <head>
-<!--    <script src="/docs/5.3/assets/js/color-modes.js"></script>-->
+    <!--    <script src="/docs/5.3/assets/js/color-modes.js"></script>-->
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,30 +18,39 @@
     <link href="{% static 'base/css/bootstrap.css' %}" rel="stylesheet">
 
     <!--    Тренировка-->
-<!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
-<!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
-<!--    Подключение шрифта Play-->
+    <!--    <link rel="preconnect" href="https://fonts.googleapis.com">-->
+    <!--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>-->
+    <!--    Подключение шрифта Play-->
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
-<!--Подключение static-->
+    <!--Подключение static-->
     <link href="{% static 'base/css/style.css' %}" rel="stylesheet">
     <!-- Favicons -->
-<!--    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">-->
-<!--    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32"-->
-<!--          type="image/png">-->
-<!--    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16"-->
-<!--          type="image/png">-->
-<!--    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">-->
-<!--    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg"-->
-<!--          color="#712cf9">-->
-<!--    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">-->
-<!--    <meta name="theme-color" content="#712cf9">-->
+    <!--    <link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">-->
+    <!--    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32"-->
+    <!--          type="image/png">-->
+    <!--    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16"-->
+    <!--          type="image/png">-->
+    <!--    <link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">-->
+    <!--    <link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg"-->
+    <!--          color="#712cf9">-->
+    <!--    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">-->
+    <!--    <meta name="theme-color" content="#712cf9">-->
 
-<!--    <link href="{% static 'base/css/sticky-footer-navbar.css' %}" rel="stylesheet">-->
+    <!--    <link href="{% static 'base/css/sticky-footer-navbar.css' %}" rel="stylesheet">-->
 
     <style>
         /*@font-face {*/
         /*    font-family: "Arial";*/
-        /*    src: local("Play"), url("{% static 'base/fonts/play.ttf' %}") format("trutype");*/
+        /*    src: local("Play"), url("
+
+
+
+
+
+
+
+
+        {% static 'base/fonts/play.ttf' %}         ") format("trutype");*/
         /*body {*/
         /*    font-family: Montserrat;*/
         /*}*/
@@ -212,25 +222,17 @@
 
 
 <header>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+    <nav class="navbar navbar-expand-xl navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">НИО</a>
+            <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <!--                    <li class="nav-item">-->
-                    <!--                        <a class="nav-link active" aria-current="page" href="#">Zotero</a>-->
-                    <!--                    </li>-->
-                    <!--                    <li class="nav-item">-->
-                    <!--                        <a class="nav-link" href="#">Оформление ссылок</a>-->
-                    <!--                    </li>-->
-
-                    <!--                    первый список-->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01"
                            data-bs-toggle="dropdown" aria-expanded="false">Приложение для
@@ -307,44 +309,157 @@
                             <li><a class="dropdown-item"
                                    href="{% static 'base/documents/byklet.pdf' %}">НО "Оперативник"</a>
                             </li>
-
-
-                            <!--                            Оставшиеся вкладки-->
-                            <!--                            <li><a class="dropdown-item"-->
-                            <!--                                   href="{% static 'base/documents/Pologenie_konkurs_05.07.2022_175.pdf' %}">Положения-->
-                            <!--                                о порядке и условиях проведения Республиканского конкурса научных-->
-                            <!--                                работ студентов</a></li>-->
-                            <!--                            <li><a class="dropdown-item"-->
-                            <!--                                   href="{% static 'base/documents/Pologenie_PPS_25.07.2022_409.doc' %}">Положение-->
-                            <!--                                о конкурсе на лучшую научно-исследовательскую работу, выполненную-->
-                            <!--                                сотрудниками Академии МВД</a></li>-->
-                            <!--                            <li><a class="dropdown-item"-->
-                            <!--                                   href="{% static 'base/documents/Ukaz_7 мая 2020_156.pdf' %}">Приоритеные-->
-                            <!--                                направления научной, научно-технической и инновационной-->
-                            <!--                                деятельности на 2021–2025 годы</a></li>-->
                         </ul>
                     </li>
                 </ul>
-                <!--                форма добавления email для рассылки-->
-                <div class="col-6 d-flex">
-                    <div class="col-6">
-                        <form action="{% url 'subscription' %}" enctype="multipart/form-data"
-                              method="post">
+                <form class="d-flex" action="{% url 'subscription' %}" enctype="multipart/form-data"
+                      method="post">{% csrf_token %}
 
-                            {% csrf_token %}
-                            {% render_field form.email placeholder='email для рассылки о новой публикации' class+='form-control' %}
+                    {% render_field form.email placeholder='email для рассылки о новой публикации' class+='form-control me-2' style="width:400px" %}
 
-                    </div>
-
-                    <div>
-                        <button type="submit" class="btn btn-secondary">ОТПРАВИТЬ</button>
-                    </div>
-                    </form>
-                </div>
+                    <button class="btn btn-secondary" type="submit">ПОДПИСАТЬСЯ</button>
+                </form>
             </div>
         </div>
-        </div>
     </nav>
+
+
+    <!-- Fixed navbar -->
+    {#    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">#}
+    {#        <div class="container-fluid">#}
+    {#            <a class="navbar-brand" href="#">НИО</a>#}
+    {#            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"#}
+    {#                    data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"#}
+    {#                    aria-expanded="false" aria-label="Toggle navigation">#}
+    {#                <span class="navbar-toggler-icon"></span>#}
+    {#            </button>#}
+    {#            <div class="collapse navbar-collapse" id="navbarCollapse">#}
+    {#                <ul class="navbar-nav me-auto mb-2 mb-md-0">#}
+    {#                    <!--                    <li class="nav-item">-->#}
+    {#                    <!--                        <a class="nav-link active" aria-current="page" href="#">Zotero</a>-->#}
+    {#                    <!--                    </li>-->#}
+    {#                    <!--                    <li class="nav-item">-->#}
+    {#                    <!--                        <a class="nav-link" href="#">Оформление ссылок</a>-->#}
+    {#                    <!--                    </li>-->#}
+    {##}
+    {#                    <!--                    первый список-->#}
+    {#                    <li class="nav-item dropdown">#}
+    {#                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01"#}
+    {#                           data-bs-toggle="dropdown" aria-expanded="false">Приложение для#}
+    {#                            написания работ</a>#}
+    {#                        <ul class="dropdown-menu dropdown-menu-dark"#}
+    {#                            aria-labelledby="dropdownMenuButton2">#}
+    {#                            <li><a class="dropdown-item active"#}
+    {#                                   href="https://www.zotero.org">Официальный сайт программы#}
+    {#                                Zotero</a></li>#}
+    {#                            <li><a class="dropdown-item"#}
+    {#                                   href="{% static 'base/documents/Archive_Zotero.zip' %}">Архив#}
+    {#                                с материалами по программе</a>#}
+    {#                            </li>#}
+    {#                            <li><a class="dropdown-item"#}
+    {#                                   href="https://www.youtube.com/watch?v=tnbwKj6-pD8&t=511s">#}
+    {#                                Обзор основных возможностей Zotero(на англ.языке)</a></li>#}
+    {#                            <li><a class="dropdown-item"#}
+    {#                                   href="https://www.youtube.com/watch?v=t9VEhGTcYbc">Основные#}
+    {#                                функции библиографического менеджера Zotero</a></li>#}
+    {#                            <li>#}
+    {#                                <hr class="dropdown-divider">#}
+    {#                            </li>#}
+    {#                            <li><a class="dropdown-item"#}
+    {#                                   href="https://t.me/Ni_shagu_Nazadd">#}
+    {#                                Заинтересовала программа? Возникли вопросы? Пиши в#}
+    {#                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"#}
+    {#                                     class="bi bi-telegram" viewBox="0 0 16 16">#}
+    {#                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>#}
+    {#                                </svg>#}
+    {#                                телегу</a></li>#}
+    {#                        </ul>#}
+    {#                    </li>#}
+    {##}
+    {#                    <!--                    второй список-->#}
+    {#                    <li class="nav-item dropdown">#}
+    {#                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01"#}
+    {#                           data-bs-toggle="dropdown" aria-expanded="false">Полезные данные по#}
+    {#                            научной деятельности</a>#}
+    {#                        <ul class="dropdown-menu dropdown-menu-dark"#}
+    {#                            aria-labelledby="dropdownMenuButton2">#}
+    {#                            <li><a class="dropdown-item"#}
+    {#                                   href="{% static 'base/documents/Napravlenia_issledivanii.pdf' %}">Направления#}
+    {#                                научно-правовых исследований,#}
+    {#                                включая диссертационные#}
+    {#                                исследования в области права </a></li>#}
+    {#                            <li><a class="dropdown-item"#}
+    {#                                   href="{% static 'base/documents/Pologenie o VAKNR_kursant _25.07.2022_408.doc' %}">Положение#}
+    {#                                о конкурсе научных работ, выполненных обучающимися Академии МВД</a>#}
+    {#                            </li>#}
+    {#                            <li><a class="dropdown-item"#}
+    {#                                   href="{% static 'base/documents/Pologenie_konkurs_05.07.2022_175.pdf' %}">Положения#}
+    {#                                о порядке и условиях проведения Республиканского конкурса научных#}
+    {#                                работ студентов</a></li>#}
+    {#                            <li><a class="dropdown-item"#}
+    {#                                   href="{% static 'base/documents/Pologenie_PPS_25.07.2022_409.doc' %}">Положение#}
+    {#                                о конкурсе на лучшую научно-исследовательскую работу, выполненную#}
+    {#                                сотрудниками Академии МВД</a></li>#}
+    {#                            <li><a class="dropdown-item"#}
+    {#                                   href="{% static 'base/documents/Ukaz_7 мая 2020_156.pdf' %}">Приоритеные#}
+    {#                                направления научной, научно-технической и инновационной#}
+    {#                                деятельности на 2021–2025 годы</a></li>#}
+    {#                            <li><a class="dropdown-item"#}
+    {#                                   href="https://vak.gov.by/перечень">Перечень научных изданий ВАК</a>#}
+    {#                            </li>#}
+    {#                        </ul>#}
+    {#                    </li>#}
+    {##}
+    {#                    <!--                                        третий список-->#}
+    {#                    <li class="nav-item dropdown">#}
+    {#                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01"#}
+    {#                           data-bs-toggle="dropdown" aria-expanded="false">Научные общества</a>#}
+    {#                        <ul class="dropdown-menu dropdown-menu-dark"#}
+    {#                            aria-labelledby="dropdownMenuButton2">#}
+    {#                            <li><a class="dropdown-item"#}
+    {#                                   href="{% static 'base/documents/byklet.pdf' %}">НО "Оперативник"</a>#}
+    {#                            </li>#}
+    {##}
+    {##}
+    {#                            <!--                            Оставшиеся вкладки-->#}
+    {#                            <!--                            <li><a class="dropdown-item"-->#}
+    {#                            <!--                                   href="{% static 'base/documents/Pologenie_konkurs_05.07.2022_175.pdf' %}">Положения-->#}
+    {#                            <!--                                о порядке и условиях проведения Республиканского конкурса научных-->#}
+    {#                            <!--                                работ студентов</a></li>-->#}
+    {#                            <!--                            <li><a class="dropdown-item"-->#}
+    {#                            <!--                                   href="{% static 'base/documents/Pologenie_PPS_25.07.2022_409.doc' %}">Положение-->#}
+    {#                            <!--                                о конкурсе на лучшую научно-исследовательскую работу, выполненную-->#}
+    {#                            <!--                                сотрудниками Академии МВД</a></li>-->#}
+    {#                            <!--                            <li><a class="dropdown-item"-->#}
+    {#                            <!--                                   href="{% static 'base/documents/Ukaz_7 мая 2020_156.pdf' %}">Приоритеные-->#}
+    {#                            <!--                                направления научной, научно-технической и инновационной-->#}
+    {#                            <!--                                деятельности на 2021–2025 годы</a></li>-->#}
+    {#                        </ul>#}
+    {#                    </li>#}
+    {#                </ul>#}
+    {#                <!--                форма добавления email для рассылки-->#}
+    {##}
+    {##}
+    {#                <form action="{% url 'subscription' %}" enctype="multipart/form-data"#}
+    {#                      method="post">#}
+    {#                    <div class="d-flex flex-row">#}
+    {##}
+    {#                        <div class="me-2" style="width: 400px">#}
+    {#                            {% csrf_token %}#}
+    {#                                {% render_field form.email placeholder='email для рассылки о новой публикации' class+='form-control' %}#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {##}
+    {#                        <div>#}
+    {#                            <button type="submit" class="btn btn-secondary">ОТПРАВИТЬ</button>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                </form>#}
+    {##}
+    {#            </div>#}
+    {#        </div>#}
+    {#        </div>#}
+    {#    </nav>#}
 </header>
 
 
@@ -354,11 +469,44 @@
 <br>
 <br>
 
+
 <div class="outer">
     <h3 class="outer" style="font-family: Play">Сведения о конферециях, поступившие в Академию МВД</h3>
 </div>
 <br>
 <div class="container table-responsive">
+    <nav aria-label="..." class="my-3">
+        <ul class="pagination pagination-sm">
+            {% if conf_list.has_previous %}
+                <li class="page-item">
+                    <a class="btn btn-outline-dark"
+                       href="?{% url_replace request 'page' conf_list.previous_page_number %}"><span
+                            aria-hidden="true">&laquo;</span></a>
+                </li>
+            {% else %}
+                <li class="page-item">
+                    <a class="btn btn-outline-dark disabled" href="#"><span
+                            aria-hidden="true">&laquo;</span></a>
+                </li>
+            {% endif %}
+            <li class="page-item d-flex align-items-center disabled">
+                <b>&nbsp;&nbsp;Страница {{ conf_list.number }}
+                    из {{ conf_list.paginator.num_pages }}&nbsp;&nbsp;</b>
+            </li>
+            {% if conf_list.has_next %}
+                <li class="page-item">
+                    <a class="btn btn-outline-dark"
+                       href="?{% url_replace request 'page' conf_list.next_page_number %}"><span
+                            aria-hidden="true">&raquo;</span></a>
+                </li>
+            {% else %}
+                <li class="page-item">
+                    <a class="btn btn-outline-dark disabled" href="#"><span
+                            aria-hidden="true">&raquo;</span></a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
     <table
             class="table table-striped table-hover table-bordered table-sm shadow-lg p-3 mb-5 bg-white rounded lh-sm">
         <thead>
@@ -376,45 +524,47 @@
         </thead>
         <tbody>
         {% for conf in conf_list reversed %}
-        <tr>
-            <td class="align-middle text-center">{{ conf.naimenovanie }}</td>
-            <td class="align-middle text-center">{{ conf.uchregdenie }}</td>
-            <td class="align-middle text-center">{{ conf.strana }}</td>
-            <td class="align-middle text-center">{{ conf.status_meropriatia }}</td>
-            <td class="align-middle text-center">{{ conf.status_uchastnikov }}</td>
-            <td class="align-middle text-center">{{ conf.data_podachi }}</td>
-            <td class="align-middle text-center">{{ conf.data_provedenia }}</td>
-            <td class="align-middle text-center">{{ conf.primechanie }}</td>
-            {% if conf.document %}
-            <td class="align-middle text-center"><a href="{{conf.document.url}}"> Скачать </a></td>
-            {% else %}
-            <td class="align-middle text-center"></td>
-            {% endif %}
+            <tr>
+                <td class="align-middle text-center">{{ conf.naimenovanie }}</td>
+                <td class="align-middle text-center">{{ conf.uchregdenie }}</td>
+                <td class="align-middle text-center">{{ conf.strana }}</td>
+                <td class="align-middle text-center">{{ conf.status_meropriatia }}</td>
+                <td class="align-middle text-center">{{ conf.status_uchastnikov }}</td>
+                <td class="align-middle text-center">{{ conf.data_podachi }}</td>
+                <td class="align-middle text-center">{{ conf.data_provedenia }}</td>
+                <td class="align-middle text-center">{{ conf.primechanie }}</td>
+                {% if conf.document %}
+                    <td class="align-middle text-center"><a href="{{ conf.document.url }}"> Скачать </a></td>
+                {% else %}
+                    <td class="align-middle text-center"></td>
+                {% endif %}
 
-        </tr>
+            </tr>
         {% endfor %}
         </tbody>
     </table>
     <br><br><br><br>
     <footer class="footer mt-auto py-3 bg-body-tertiary">
-    <div style="display: flex; justify-content: space-between; font-size: 12px; line-height: 12px" class="container d-flex">
-        <div>© Академия МВД Республики Беларусь<br>Разработано кафедрой информационного права
-            ФКМ<br>отделом образовательных информационных технологий<br>совместно с курсантом 3 курса
-            ФКМ
+        <div style="display: flex; justify-content: space-between; font-size: 12px; line-height: 12px"
+             class="container d-flex">
+            <div>© Академия МВД Республики Беларусь<br>Разработано кафедрой информационного права
+                ФКМ<br>отделом образовательных информационных технологий<br>совместно с курсантом 3 курса
+                ФКМ
+            </div>
+
+            <div style=" line-height: 12px">Ресурс работает в тестовом режиме<br>Нашли ошибки? Есть предложения по
+                развитию? <br>Просьба позвонить или
+                написать <a
+                        href="https://t.me/Ni_shagu_Nazadd">админу</a> в
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-telegram" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+                </svg>
+            </div>
+
         </div>
 
-        <div style=" line-height: 12px">Ресурс работает в тестовом режиме<br>Нашли ошибки? Есть предложения по развитию? <br>Просьба позвонить или
-            написать <a
-                href="https://t.me/Ni_shagu_Nazadd">админу</a> в
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                 class="bi bi-telegram" viewBox="0 0 16 16">
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
-            </svg>
-        </div>
-
-    </div>
-
-</footer>
+    </footer>
 
 </div>
 

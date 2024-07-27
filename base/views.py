@@ -1,18 +1,22 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import Conference, Podpiska
 from django.http import HttpResponseRedirect
 from .forms import ConferenceForm, PodpiskaForm
+from django.core.paginator import Paginator
+from .filters import ConferenceFilter
 
 
 # обработка стартовой страницы
 def index(request):
-    conf_list = Conference.objects.all()
+    qs = Conference.objects.all()
+    f = ConferenceFilter(request.GET, queryset=qs)
     form = PodpiskaForm()
-    return render(request, 'base/index.html', {"conf_list": conf_list, "form": form})
+    paginator = Paginator(f.qs, 30)
+    page = request.GET.get('page')
+    conf_list = paginator.get_page(page)
+    return render(request, 'base/index.html', {"conf_list": conf_list, "form": form, 'filter': f})
 
 
 # обработка отправки формы в БД Конференций
@@ -23,15 +27,15 @@ def index2(request):
             form.save()
             emails = Podpiska.objects.all()
             email_list = [item.email for item in emails]
-            print(email_list)
 
             # for item in email_list:
-            send_mail("Новая запись о конференции", "Доброго времени суток пользователь. Уведомляю Вас, что на сайте Академии МВД была "
-                                                    "зарегистрирована "
-                                                    "новая конференция. https://www.nio.amia.by. Ресурс работает в тестовом режиме.",
-            settings.EMAIL_HOST_USER,
-            email_list,
-            fail_silently = False),
+            send_mail("Новая запись о конференции",
+                      "Доброго времени суток пользователь. Уведомляю Вас, что на сайте Академии МВД была "
+                      "зарегистрирована "
+                      "новая конференция. https://www.nio.amia.by. Ресурс работает в тестовом режиме.",
+                      settings.EMAIL_HOST_USER,
+                      email_list,
+                      fail_silently=False),
 
             return HttpResponseRedirect('/done')
     else:
