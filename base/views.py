@@ -6,6 +6,8 @@ from django.http import HttpResponseRedirect
 from .forms import ConferenceForm, PodpiskaForm
 from django.core.paginator import Paginator
 from .filters import ConferenceFilter
+import os
+import threading
 
 
 # обработка стартовой страницы
@@ -19,6 +21,16 @@ def index(request):
     return render(request, 'base/index.html', {"conf_list": conf_list, "form": form, 'filter': f})
 
 
+def send_email(email_list):
+    send_mail("Новая запись о конференции",
+              "Доброго времени суток пользователь. Уведомляю Вас, что на сайте Академии МВД была "
+              "зарегистрирована "
+              "новая конференция. https://www.nio.amia.by. Ресурс работает в тестовом режиме.",
+              settings.EMAIL_HOST_USER,
+              email_list,
+              fail_silently=False)
+
+
 # обработка отправки формы в БД Конференций
 def index2(request):
     if request.method == 'POST':
@@ -26,16 +38,21 @@ def index2(request):
         if form.is_valid():
             form.save()
             emails = Podpiska.objects.all()
-            email_list = [item.email for item in emails]
+            email_list = list(set([item.email for item in emails]))
+
+            threads = [threading.Thread(target=send_email, args=([email],), daemon=True) for email in email_list]
+
+            for thread in threads:
+                thread.start()
 
             # for item in email_list:
-            send_mail("Новая запись о конференции",
-                      "Доброго времени суток пользователь. Уведомляю Вас, что на сайте Академии МВД была "
-                      "зарегистрирована "
-                      "новая конференция. https://www.nio.amia.by. Ресурс работает в тестовом режиме.",
-                      settings.EMAIL_HOST_USER,
-                      email_list,
-                      fail_silently=False),
+            # send_mail("Новая запись о конференции",
+            #           "Доброго времени суток пользователь. Уведомляю Вас, что на сайте Академии МВД была "
+            #           "зарегистрирована "
+            #           "новая конференция. https://www.nio.amia.by. Ресурс работает в тестовом режиме.",
+            #           settings.EMAIL_HOST_USER,
+            #           email_list,
+            #           fail_silently=False)
 
             return HttpResponseRedirect('/done')
     else:
