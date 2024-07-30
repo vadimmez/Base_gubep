@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from .forms import ConferenceForm, PodpiskaForm
 from django.core.paginator import Paginator
 from .filters import ConferenceFilter
+from django.contrib.auth.decorators import login_required
 import os
 import threading
 
@@ -31,6 +32,7 @@ def send_email(email_list):
               fail_silently=False)
 
 
+@login_required
 # обработка отправки формы в БД Конференций
 def index2(request):
     if request.method == 'POST':
