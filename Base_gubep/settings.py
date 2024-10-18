@@ -23,9 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5!=w2ous_srp5%^q4!9g@(2m4(moj8s+1&=2@zn$b+6hoc$4s+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+CSRF_TRUSTED_ORIGINS = ['https://nio.amia.by', 'https://www.nio.amia.by']
 
 # Application definition
 
@@ -76,8 +78,10 @@ WSGI_APPLICATION = 'Base_gubep.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': "django.db.backends.mysql",
+        'NAME': "nio",
+        'USER': 'amia',
+        'PASSWORD': 'q1w2e3r4t5y6u7i8o9p0[-]='
     }
 }
 
@@ -117,12 +121,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_USE_TLS = True
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'nio.amvd@gmail.com'
-# EMAIL_HOST_PASSWORD = 'Ygz-6SX-Zh3-fdg'
+
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'
+
+STATIC_ROOT = BASE_DIR / 'static/'
+MEDIA_ROOT = '/var/www/www-root/data/www/nio.amia.by/media/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
