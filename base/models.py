@@ -57,7 +57,7 @@ class Conference(models.Model):
     class Meta:
         verbose_name = 'Конференция'
         verbose_name_plural = 'Конференции'
-        ordering = ("-id",)
+        ordering = ("id",)
 
 
 class Podpiska(models.Model):
